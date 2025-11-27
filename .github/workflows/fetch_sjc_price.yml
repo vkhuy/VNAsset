@@ -36,8 +36,9 @@ jobs:
     
     - name: Fetch SJC Gold Price
       run: |
-        python data/gold_sjc/get_sjc_price.py
-    
+        cd data/gold_sjc
+        python get_sjc_price.py
+
     - name: Commit and push changes
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
