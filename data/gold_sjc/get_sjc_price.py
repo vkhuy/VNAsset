@@ -4,7 +4,7 @@ from datetime import datetime
 import time
 from vnstock.explorer.misc import sjc_gold_price
 
-def fetch_sjc_with_retry(max_retries=3, delay=5):
+def fetch_sjc_with_retry(max_retries=10, delay=10):
     """Fetch SJC data with retry logic"""
     for attempt in range(max_retries):
         try:
