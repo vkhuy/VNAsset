@@ -4,7 +4,7 @@ from datetime import datetime
 import time
 from vnstock.explorer.misc import sjc_gold_price
 
-def fetch_sjc_with_retry(max_retries=10, delay=10):
+def fetch_sjc_with_retry(max_retries=3, delay=5):
     """Fetch SJC data with retry logic"""
     for attempt in range(max_retries):
         try:
@@ -32,10 +32,10 @@ def fetch_and_save_sjc_price():
     try:
         # Fetch SJC gold price data with retry
         print("Fetching SJC price...")
-        gold_data = fetch_sjc_with_retry(max_retries=3, delay=5)
+        gold_data = fetch_sjc_with_retry(max_retries=10, delay=10)
         
         if gold_data is None or len(gold_data) == 0:
-            print("✗ Failed to fetch SJC data after multiple attempts")
+            print("Failed to fetch SJC data after multiple attempts")
             return False
         
         sjc_row = gold_data.iloc[0]
@@ -43,7 +43,7 @@ def fetch_and_save_sjc_price():
         sell_price = sjc_row.get('sell_price')
         
         if buy_price is None or sell_price is None:
-            print("✗ Not Available SJC gold prices")
+            print("Not Available SJC gold prices")
             return False
 
         print(f"Fetched prices: Buy={buy_price:,.0f} VND, Sell={sell_price:,.0f} VND")
@@ -78,7 +78,7 @@ def fetch_and_save_sjc_price():
         return True
         
     except Exception as e:
-        print(f"✗ Error: {str(e)}")
+        print(f"Error: {str(e)}")
         import traceback
         traceback.print_exc()
         return False
