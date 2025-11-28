@@ -1,0 +1,6 @@
+requests
+vnstock>=0.2.9
+pandas>=2.0.0
+matplotlib
+bs4
+lxml

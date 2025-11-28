@@ -31,8 +31,8 @@ def fetch_sjc_for_date(date):
                 sell = int(sell_str.replace(",", "")) / 1_000_00
                 return pd.DataFrame([{
                     "timestamp": date.strftime("%Y-%m-%d"),
-                    "buy": buy,
-                    "sell": sell
+                    "buy_1l": buy,
+                    "sell_1l": sell
                 }])
             except:
                 return None
