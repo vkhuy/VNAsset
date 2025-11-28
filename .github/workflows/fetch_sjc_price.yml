@@ -48,7 +48,7 @@ jobs:
         if git diff --staged --quiet; then
           echo "No changes in SJC gold price."
         else
-          git commit -m "Update SJC gold price - $(date +'%Y-%m-%d %H:%M:%S')"
+          git commit -m "Update SJC gold price - $(date +'%Y-%m-%d')"
           git push
           echo "Updated SJC gold price"
         fi
