@@ -8,7 +8,7 @@ on:
   
   push:
     branches:
-      - v0.0.1
+      - main
     paths:
       - 'data/gold_sjc/get_sjc_price.py'
       - '.github/workflows/fetch_sjc_price.yml'
